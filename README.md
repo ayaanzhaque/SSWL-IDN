@@ -30,7 +30,7 @@ A brief summary of our results are shown below. Our algorithm SSWL-IDN and our a
 
 ## Code
 
-The code has been written in Python using the Pytorch framework. Training requries a GPU. We provide a Jupyter Notebook, which can be run in Google Colab, containing the algorithm in a usable version. Open [`SSWL-IDN.ipynb`](https://github.com/ayaanzhaque/MultiMix/blob/main/MultiMix.ipynb) and run it through. Uncomment the training cell to train the model. We additionally provide python scripts.
+The code has been written in Python using the Pytorch framework. Training requries a GPU. We provide a Jupyter Notebook, which can be run in Google Colab, containing the algorithm in a usable version. Open [`SSWL-IDN.ipynb`](https://github.com/zubaerimran/SSWL-IDN/blob/main/SSWL-IDN.ipynb) and run it through. Uncomment the training cell to train the model. We additionally provide python scripts.
 
 ## Citation
 
