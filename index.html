@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SSWL-IDN</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Window-Level is a Strong Denoising Surrogate</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a>Ayaan Haque</a><sup>1,2</sup>,</span>
+              <span class="author-block">
+                <a>Adam Wang</a><sup>2</sup>,
+              </span>
+            <span class="author-block">
+              <a>Abdullah-Al-Zubaer Imran</a><sup>2,3</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Saratoga High School</span>,
+            <span class="author-block"><sup>2</sup>Stanford University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="static/sswl-idn-paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2105.07153"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+			  <span class="link-block">
+                <a href="https://towardsdatascience.com/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-newspaper"></i>
+                  </span>
+                  <span>Blog</span>
+                </a>
+              </span>
+			  <span class="link-block">
+                <a href="static/ISBI2021_Poster.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span>
+			  <span class="link-block">
+                <a href="static/MICCAI SSWL-IDN.pptx.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+					<i class="fas fa-file-powerpoint"></i>
+                  </span>
+                  <span>Slides</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-book"></i>
+                  </span>
+                  <span>Proceedings</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ayaanzhaque/SSWL-IDN"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class='section'>
+	<div class='container'>
+	  <div class="columns is-centered has-text-centered">
+		<div class="column is-two-thirds">
+		  <div class="content has-text-justified">
+	  <img src="static/images/model_diagram.jpg" style='width:100%;'>
+	</div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            CT image quality is heavily reliant on radiation dose, which causes a trade-off between 
+            radiation dose and image quality that affects the subsequent image-based diagnostic 
+            performance. However, high radiation can be harmful to both patients and operators. 
+            Several (deep learning-based) approaches have been attempted to denoise low dose images. 
+            However, those approaches require access to large training sets, specifically the full dose 
+            CT images for reference, which can often be difficult to obtain. Self-supervised learning is 
+            an emerging alternative for lowering the reference data requirement facilitating unsupervised 
+            learning. Currently available self-supervised CT denoising works are either dependent on 
+            foreign domains or pretexts that are not very task-relevant. To tackle the aforementioned 
+            challenges, we propose a novel self-supervised learning approach, namely Self-Supervised 
+            Window-Leveling for Image DeNoising (SSWL-IDN), leveraging an innovative, task-relevant, 
+            simple, yet effective surrogate---prediction of the window-leveled equivalent. SSWL-IDN 
+            leverages residual learning and a hybrid loss combining perceptual loss and MSE, all 
+            incorporated in a VAE framework. Our extensive (in- and cross-domain) experimentation 
+            demonstrates the effectiveness of SSWL-IDN in aggressive denoising of CT (abdomen and chest) 
+            images acquired at 5% dose level only.
+          </p>
+          <p>
+            This paper was accepted to <a href="https://biomedicalimaging.org/2021/">MICCAI MLMI 2021</a>. The paper will be presented in September at the conference and is availabe in the
+            proceedings. <a href = "https://drive.google.com/drive/folders/1fuYwbCuvcLdnMXj3Uv4AJg_-wPF5Y3cm?usp=sharing">Here</a> are some photos of us presenting.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Abstract. -->
+
+  <!-- Paper video. -->
+  <!-- <div class="columns is-centered has-text-centered">
+    <div class="column is-two-thirds">
+      <h2 class="title is-2">Video</h2>
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div> -->
+  <!--/ Paper video. -->
+</section>
+
+<section class='section'>
+	<div class='container'>
+	  <div class="columns is-centered">
+		<div class="column is-two-thirds">
+      <h2 class="title is-2 has-text-centered">Methods</h2>
+		  <div class="content has-text-justified">
+	    <img src="static/images/data_plot.jpg" style='width:100%;'>
+  	</div>
+
+    <p>
+      <li>Our model performs CT image denoising using a novel, task-relevant self-supervised surrogate task.</li>
+      <li>We predict window-leveled images from non-window-leveled images as our surrogate task. 
+        Window-leveled images can be freely created using the window-leveling parameters in the 
+        DICOM metadata.</li>
+        <li>Our model architecture is hybrid between a VAE and RED-CNN. We use the RED-CNN structure with residuals
+          and add in the VAE bottleneck to add randomized noise into the latent code using the reparameterization trick.</li>
+          <li>Our loss function is an intuitive hybrid loss between perceptual loss and MSE loss, encouraging both
+            pixel-wise and feature-wise denoising accuracy.</li>
+    </p>
+
+  </div>
+  </div>
+  </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <h2 class="title is-2 has-text-centered">Visualizations and Metrics</h2>
+  
+      <div class="columns is-centered">
+  
+        <!-- Visual Effects. -->
+        <div class="column">
+          <div class="content">
+            <img src="static/images/ssl-table.png" style='width:100%;'>
+          </div>
+        </div>
+        <!--/ Visual Effects. -->
+  
+        <!-- Matting. -->
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <img src="static/images/scan-preds.png" style='width:100%;'>
+              <img src="static/images/roi-preds.png" style='width:100%;'>
+              <img src="static/images/archi-table.png" style='width:100%;'>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+      <!--/ Matting. -->
+  
+    </div>
+  </section>
+
+
+</section>
+
+<!-- Animation. -->
+<section class="section">
+  <div class="container-fluid">
+<div class="columns is-centered has-text-centered">
+  <div class="column is-two-thirds">
+    <h2 class="title is-2">Paper</h2>
+    <div class="content has-text-justified">
+
+    <embed src="static/sswl-idn-paper.pdf" width="100%" height='700px'/>
+  
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{haque2021window,
+      title={Window-Level is a Strong Denoising Surrogate},
+      author={Haque, Ayaan and Wang, Adam and Imran, Abdullah-Al-Zubaer},
+      journal={arXiv preprint arXiv:2105.07153},
+      year={2021}
+}
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="static/paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/ayaanzhaque/MultiMix" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website template was borrowed from <a href="https://github.com/nerfies/nerfies.github.io">here</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
