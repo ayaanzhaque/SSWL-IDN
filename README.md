@@ -1,6 +1,6 @@
 # SSWL-IDN
 
-This repository contains the implementation of the paper ["Window-Level is a Strong Denoising Surrogate"](https://arxiv.org/abs/2105.07153) by Ayaan Haque, Adam Wang, and Abdullah-Al-Zubaer Imran. In [MICCAI MLMI](https://miccai2021.org/), 2021.
+This repository contains the implementation of the paper ["Window-Level is a Strong Denoising Surrogate"](https://arxiv.org/abs/2105.07153) by Ayaan Haque, Adam Wang, and Abdullah-Al-Zubaer Imran from Saratoga High School and Stanford University. In [MICCAI MLMI](https://miccai2021.org/), 2021.
 
 We introduce SSWL-IDN, a novel self-supervised CT denoising window-level prediction surrogate task. Our method is task-relevant and related to the downstream task, yielding improved performance over recent methods.
 
